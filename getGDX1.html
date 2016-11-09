@@ -28,6 +28,7 @@ var height =768;
 	ctrl.append("path").data([data]).
 	attr("class", "pathline").
 	attr("d", lines);
+	});
 	
 	d3.csv("./table.csv", function(data) {
 	console.log(data);
