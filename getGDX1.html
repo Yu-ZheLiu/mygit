@@ -28,6 +28,21 @@ var height =768;
 	ctrl.append("path").data([data]).
 	attr("class", "pathline").
 	attr("d", lines);
+	
+	d3.csv("./table.csv", function(data) {
+	console.log(data);
+	data.forEach(function(d) {
+		console.log(d.High);
+	});
+	var maxy = d3.max(data, function(d) { return d.High; });
+	var ln = data.length;
+	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
+	var lines = d3.line().
+	x(function(d,i){ return i * (width/ln); }).
+	y(function(d){ return d.High * (height/maxy); });
+	ctrl.append("path").data([data]).
+	attr("class", "pathline").
+	attr("d", lines);
 });
 </script>
 </body>
