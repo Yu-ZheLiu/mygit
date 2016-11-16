@@ -1,13 +1,13 @@
 function LearnJS(){
 
-dataPath = './R/';
-dataFile = 'euro.csv';
+dataPath = 'https://yu-zheliu.github.io/mygit/';
+dataFile = 'table.csv';
 dataUrl  = dataPath + dataFile;
 
 var width  = 1024;
 var height = 768;
 
-d3.csv("./table.csv", function(data) {
+d3.csv(dataUrl, function(data) {
 	console.log(data);
 	data.forEach(function(d) {
 		console.log(d.Open);
@@ -17,7 +17,7 @@ d3.csv("./table.csv", function(data) {
 	});
 	var maxHigh = d3.max(data, function(d) { return d.High; });
 	var ln = data.length;
-	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
+	var ctrl  = d3.select("smallBox").append("svg").attr("width", width).attr("height", height);
 	
 	var linesOpen = d3.line().
 	x(function(d,i){ return i * (width/ln); }).  
